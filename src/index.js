@@ -23,7 +23,8 @@ if (!mongoUri) {
 mongoose.set("strictQuery", true);
 // resolves future deprecation issue with Mongoose v7
 
-mongoose.connect(mongoUri);
+mongoose.connect(mongoUri, );
+
 mongoose.connection.on("connected", () => {
   console.log("Connected to mongo instance");
 });
@@ -35,6 +36,6 @@ app.get("/", requireAuth, (req, res) => {
   res.send(`Your email: ${req.user.email}`);
 });
 
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log("Listening on port 3002");
 });
